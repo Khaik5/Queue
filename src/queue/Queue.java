@@ -88,7 +88,21 @@ public class Queue {
         }
         
     }
-
+    void demLe() {
+        Queue q = new Queue();
+        int count = 0;
+        while (!EmptQ()) {
+            int x = RemoveQ();
+            if (x % 2 != 0) { // Kiểm tra số lẻ
+                count++;
+            }
+            q.add(x);
+        }
+        while (!q.EmptQ()) {
+            this.add(q.RemoveQ());
+        }
+        System.out.println("\n So luong phan tu le trong hang doi: " + count);
+    }
     void in() {
         System.out.println("\n Noi dung hang doi: ");
         Queue q = new Queue();
@@ -108,6 +122,6 @@ public class Queue {
         q.nhap();
         q.in();
         q.tong();
-
+        q.demLe();
     }
 }
